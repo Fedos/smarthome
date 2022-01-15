@@ -18,13 +18,14 @@ services:
         max-size: "200k"
         max-file: "2"
   homebridge:
-    image: ghcr.io/lafin/homebridge
+    image: oznu/homebridge:raspberry-pi
     network_mode: host
     environment:
       - SERVICE_NAME=homebridge
+      - PGID=1000
+      - PUID=1000
       - HOMEBRIDGE_CONFIG_UI=1
       - HOMEBRIDGE_CONFIG_UI_PORT=8080
-      - TZ
     volumes:
       - ./homebridge:/root/.homebridge
     depends_on:
