@@ -5,7 +5,6 @@ services:
     network_mode: host
     environment:
       - SERVICE_NAME=nodered
-      - TZ
     volumes:
       - ./nodered:/home/node/.node-red
     depends_on:
